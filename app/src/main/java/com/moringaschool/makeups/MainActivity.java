@@ -13,7 +13,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 //    @BindView(R.id.findMakeupButton) Button mFindMakeupButton;
 //    @BindView(R.id.appNameTextView) TextView mAppNameTextView;
 
@@ -47,13 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         Intent intent = getIntent();
-        String location = intent.getStringExtra("Makeup");
-        mLocationTextView.setText("Here are all the Makeup for you: " + location);
+        String Makeup = intent.getStringExtra("Makeup");
+        mLocationTextView.setText("Here are all the Makeup for you: " + Makeup);
 
     }
 
-    @Override
-    public void onClick(View v) {
-
-    }
 }

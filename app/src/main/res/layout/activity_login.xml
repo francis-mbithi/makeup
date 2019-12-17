@@ -21,8 +21,7 @@
             android:includeFontPadding="true"
             android:text="SIGN IN"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:fontFamily="@font/roboto" />
+            android:textSize="20sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
