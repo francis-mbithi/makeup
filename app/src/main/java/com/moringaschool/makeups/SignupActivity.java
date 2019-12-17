@@ -39,7 +39,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if(v == mSignupButton){
-            Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+            Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
             startActivity(intent);
         }
 

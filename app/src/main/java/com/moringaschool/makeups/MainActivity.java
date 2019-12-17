@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String restaurant = ((TextView)view).getText().toString();
+                String makeup = ((TextView)view).getText().toString();
                 Toast.makeText(MainActivity.this, "Makeup", Toast.LENGTH_LONG).show();
 
             }
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String makeup = intent.getStringExtra("makeup");
-        mLocationTextView.setText("Here are all the Makeup for you: " + makeup);
+        mLocationTextView.setText("Available Makeup " + makeup);
 
     }
 
