@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/pink">
+    android:background="@color/white_smoke">
 
     <ImageView
         android:id="@+id/logo_id"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/ik"
+        android:src="@drawable/log"
         android:scaleType="fitCenter"/>
 
     <TextView
@@ -18,8 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/logo_id"
         android:layout_centerHorizontal="true"
-        android:text="Splash Screen"
+        android:text="MakeUP"
         android:textSize="30dp"
-        android:textColor="@color/pink"/>
+        android:textColor="@color/deep_pink"/>
 
 </RelativeLayout>
