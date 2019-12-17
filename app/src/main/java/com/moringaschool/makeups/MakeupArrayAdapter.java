@@ -19,7 +19,7 @@ public class MakeupArrayAdapter extends ArrayAdapter {
     public Object getItem(int position){
         String makeup = mMakeup[position];
         String cosmetics = mCosmetics[position];
-        return String.format("%s \nServes great:%s", makeup, cosmetics);
+        return String.format("%s \nOrigin:%s", makeup, cosmetics);
     }
 
     @Override

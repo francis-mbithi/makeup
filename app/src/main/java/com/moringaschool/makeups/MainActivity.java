@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
-        String Makeup = intent.getStringExtra("Makeup");
-        mLocationTextView.setText("Here are all the Makeup for you: " + Makeup);
+        String makeup = intent.getStringExtra("makeup");
+        mLocationTextView.setText("Here are all the Makeup for you: " + makeup);
 
     }
 
