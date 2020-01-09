@@ -1,4 +1,4 @@
-package com.moringaschool.makeups.presentation.search;
+package com.moyinoluwa.makeupsearch.presentation.search;
 
 import com.moyinoluwa.makeupsearch.data.MakeUpRepository;
 import com.moyinoluwa.makeupsearch.data.remote.model.MakeUp;

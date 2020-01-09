@@ -1,4 +1,4 @@
-package com.moringaschool.makeups.presentation.select;
+package com.moyinoluwa.makeupsearch.presentation.select;
 
 import android.view.ViewGroup;
 

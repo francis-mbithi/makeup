@@ -63,6 +63,9 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.6'
     compile 'com.squareup.picasso:picasso:2.5.2'
 
+
+
+
     //Dependencies for JUNit and unit tests.
     testCompile "junit:junit:4.12"
     testCompile "org.mockito:mockito-all:1.10.19"
