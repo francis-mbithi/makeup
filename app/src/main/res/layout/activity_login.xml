@@ -26,7 +26,6 @@
             android:textAllCaps="true"
             android:textSize="13dp"
             android:textStyle="bold"
-            android:textColor="@color/deep_pink"
             android:fontFamily="sans-serif"/>
 
 
@@ -64,7 +63,6 @@
             android:foreground="?android:attr/selectableItemBackground"
             android:text="SIGN IN"
             android:textAllCaps="false"
-            android:textColor="@color/deep_pink"
             android:textSize="17sp"/>
 
         <TextView
@@ -77,7 +75,6 @@
             android:textAllCaps="true"
             android:textSize="13dp"
             android:textStyle="bold"
-            android:textColor="@color/deep_pink"
             android:fontFamily="sans-serif"/>
 
 
