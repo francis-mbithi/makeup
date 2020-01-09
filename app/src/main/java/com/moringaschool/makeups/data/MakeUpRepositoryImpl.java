@@ -1,6 +1,5 @@
 package com.moringaschool.makeups.data;
 
-import com.moringaschool.makeups.data.MakeUpRepository;
 import com.moringaschool.makeups.data.remote.MakeUpProductRestService;
 import com.moringaschool.makeups.data.remote.model.MakeUp;
 

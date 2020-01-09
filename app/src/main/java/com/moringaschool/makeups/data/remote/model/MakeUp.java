@@ -5,9 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by moyinoluwa on 2/9/17.
- */
 
 public class MakeUp {
 

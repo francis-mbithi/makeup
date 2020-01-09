@@ -1,4 +1,4 @@
-package com.moyinoluwa.makeupsearch;
+package com.moringaschool.makeups;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.moyinoluwa.makeupsearch", appContext.getPackageName());
+        assertEquals("com.moringaschool.makeups", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.moyinoluwa.makeupsearch.data;
+package com.moringaschool.makeups.data;
 
 import com.moyinoluwa.makeupsearch.data.remote.MakeUpProductRestService;
 import com.moyinoluwa.makeupsearch.data.remote.model.MakeUp;

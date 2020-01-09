@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">http://makeup-api.herokuapp.com/api/v1/products.json</domain>
+    </domain-config>
+</network-security-config>
