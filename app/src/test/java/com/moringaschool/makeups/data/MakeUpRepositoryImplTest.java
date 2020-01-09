@@ -1,7 +1,7 @@
 package com.moringaschool.makeups.data;
 
-import com.moyinoluwa.makeupsearch.data.remote.MakeUpProductRestService;
-import com.moyinoluwa.makeupsearch.data.remote.model.MakeUp;
+import com.moringaschool.makeups.data.remote.MakeUpProductRestService;
+import com.moringaschool.makeups.data.remote.model.MakeUp;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -24,9 +24,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.powermock.api.mockito.PowerMockito.when;
 
-/**
- * Created by moyinoluwa on 2/9/17.
- */
+
 public class MakeUpRepositoryImplTest {
 
     @Mock
