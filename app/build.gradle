@@ -76,23 +76,23 @@ dependencies {
 
     //Dependencies for Espresso
     androidTestImplementation 'com.android.support:appcompat-v7:29.2.0'
-    androidTestImplentatation ('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    androidTestImplementation ("com.android.support.test:runner:0.5") {
+    androidTestCompile("com.android.support.test:runner:0.5") {
         exclude module: 'support-annotations'
         exclude module: 'support-v4'
     }
-    androidTestImplementation("com.android.support.test:rules:0.5") {
+    androidTestCompile("com.android.support.test:rules:0.5") {
         exclude module: 'support-annotations'
         exclude module: 'support-v4'
     }
-    androidTestImplementation("com.android.support.test.espresso:espresso-intents:2.2.2") {
+    androidTestCompile("com.android.support.test.espresso:espresso-intents:2.2.2") {
         exclude module: 'recyclerview-v7'
         exclude module: 'support-annotations'
         exclude module: 'support-v4'
     }
-    androidTestImplementation('com.android.support.test.espresso:espresso-contrib:2.2.1') {
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.1') {
         exclude module: 'recyclerview-v7'
         exclude module: 'support-annotations'
         exclude module: 'support-v4'
