@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "374470492575",
+    "firebase_url": "https://makeups-7bc5d.firebaseio.com",
+    "project_id": "makeups-7bc5d",
+    "storage_bucket": "makeups-7bc5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374470492575:android:32e6cb266c54291a76fdaa",
+        "android_client_info": {
+          "package_name": "com.moringaschool.makeups"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374470492575-hemnq9hpj2jf9ah1mnktub4rkicp16k9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4ZuMcpf8tNSKDFvHEwgsBdGqfoUVnGiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374470492575-hemnq9hpj2jf9ah1mnktub4rkicp16k9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

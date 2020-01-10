@@ -1,4 +1,4 @@
-package com.moyinoluwa.makeupsearch;
+package com.moringaschool.makeups;
 
 import org.junit.Test;
 

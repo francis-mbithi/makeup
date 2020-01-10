@@ -1,8 +1,8 @@
-package com.moyinoluwa.makeupsearch.presentation.search;
+package com.moringaschool.makeups.presentation.search;
 
-import com.moyinoluwa.makeupsearch.data.MakeUpRepository;
-import com.moyinoluwa.makeupsearch.data.remote.model.MakeUp;
-import com.moyinoluwa.makeupsearch.presentation.base.BasePresenter;
+import com.moringaschool.makeups.data.MakeUpRepository;
+import com.moringaschool.makeups.data.remote.model.MakeUp;
+import com.moringaschool.makeups.presentation.base.BasePresenter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,9 +22,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.powermock.api.mockito.PowerMockito.when;
 
-/**
- * Created by moyinoluwa on 3/3/17.
- */
+
 public class MakeUpSearchPresenterTest {
 
     @Mock

@@ -1,10 +1,10 @@
-package com.moyinoluwa.makeupsearch.presentation.select;
+package com.moringaschool.makeups.presentation.select;
 
 import android.view.ViewGroup;
 
-import com.moyinoluwa.makeupsearch.presentation.base.BasePresenter;
-import com.moyinoluwa.makeupsearch.presentation.select_product.SelectProductContract;
-import com.moyinoluwa.makeupsearch.presentation.select_product.SelectProductPresenter;
+import com.moringaschool.makeups.presentation.base.BasePresenter;
+import com.moringaschool.makeups.presentation.select_product.SelectProductContract;
+import com.moringaschool.makeups.presentation.select_product.SelectProductPresenter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,9 +14,7 @@ import org.mockito.MockitoAnnotations;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
-/**
- * Created by moyinoluwa on 1/15/17.
- */
+
 public class SelectProductPresenterTest {
 
     @Mock

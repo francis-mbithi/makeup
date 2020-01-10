@@ -44,7 +44,7 @@ public class MakeUpSearchActivity extends AppCompatActivity implements MakeUpSea
         textViewEmptyMessage = (TextView) findViewById(R.id.textView_empty_in_here);
         textViewGoBackMessage = (TextView) findViewById(R.id.textView_go_back_and_search);
         recyclerViewMakeUp = (RecyclerView) findViewById(R.id.recycler_view_makeup);
-//        lottieAnimationView = (LottieAnimationView) findViewById(R.id.animation_view);
+        lottieAnimationView = (LottieAnimationView) findViewById(R.id.animation_view);
 
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL);
