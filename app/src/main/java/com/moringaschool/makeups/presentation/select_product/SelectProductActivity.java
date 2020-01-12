@@ -1,5 +1,6 @@
 package com.moringaschool.makeups.presentation.select_product;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.transition.Fade;
@@ -7,6 +8,9 @@ import android.transition.Slide;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,6 +22,8 @@ import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.android.flexbox.JustifyContent;
+import com.google.firebase.auth.FirebaseAuth;
+import com.moringaschool.makeups.LoginActivity;
 import com.moringaschool.makeups.R;
 
 import java.util.Arrays;
@@ -25,6 +31,8 @@ import java.util.List;
 
 public class SelectProductActivity extends AppCompatActivity implements SelectProductContract
         .View, ProductsAdapter.ProductsAdapterCallback, BrandsAdapter.BrandsAdapterCallback {
+
+
 
     TextView textViewSearchIntro;
     TextView textViewProductName;
@@ -38,6 +46,8 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
     String productName = "";
 
     SelectProductContract.Presenter selectProductPresenter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +75,17 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
 
         selectProductPresenter = new SelectProductPresenter(selectProductContainer, productName);
         selectProductPresenter.attachView(this);
+
+
+
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void setUpFlexboxLayoutManager(FlexboxLayoutManager layoutManager) {
@@ -76,6 +97,15 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
     private List<String> getItemList(int itemId) {
         String[] items = getResources().getStringArray(itemId);
         return Arrays.asList(items);
+    }
+
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(SelectProductActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -109,5 +139,16 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
     @Override
     public String getProductName() {
         return productName;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
