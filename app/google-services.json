@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "374470492575-m0bkhr84u359n1dpkev631qdhmqv0ous.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.makeups",
+            "certificate_hash": "ba9a8325ebfd5bcc30d5bb44671a0112dffa74f2"
+          }
+        },
+        {
           "client_id": "374470492575-hemnq9hpj2jf9ah1mnktub4rkicp16k9.apps.googleusercontent.com",
           "client_type": 3
         }

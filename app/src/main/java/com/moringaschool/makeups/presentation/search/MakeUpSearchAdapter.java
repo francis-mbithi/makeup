@@ -44,7 +44,7 @@ public class MakeUpSearchAdapter extends RecyclerView.Adapter<MakeUpSearchAdapte
 
         holder.textViewSummary.setText(item.getName());
 
-        Picasso.with(holder.imageViewPreview.getContext()).load(item.getImageLink()).into(holder
+        Picasso.get().load(item.getImageLink()).into(holder
                 .imageViewPreview);
     }
 

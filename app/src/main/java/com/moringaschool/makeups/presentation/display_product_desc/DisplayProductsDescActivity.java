@@ -67,7 +67,7 @@ public class DisplayProductsDescActivity extends AppCompatActivity {
     }
 
     private void setToolbarImage() {
-        Picasso.with(this).load(imageLink).into(imageViewToolbar);
+        Picasso.get().load(imageLink).into(imageViewToolbar);
     }
 
     private void setUiText() {

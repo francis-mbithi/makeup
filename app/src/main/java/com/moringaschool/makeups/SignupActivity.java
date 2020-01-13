@@ -48,29 +48,27 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         ButterKnife.bind(this);
 
+        mCreateUserButton.setOnClickListener(this);
+
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
 
+//        createNewUser();
 
-
-        mCreateUserButton.setOnClickListener(this);
-
-
-
-//        TextView signIn_text = findViewById(R.id.signIn_text);
-//        signIn_text.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(SignupActivity.this, LoginActivity.class));
-//                finish();
-//            }
-//        });
+        TextView signIn_text = findViewById(R.id.signIn_text);
+        signIn_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
     }
 
 
     @Override
     public void onClick(View v) {
-        if(v == mLoginTextView){
+        if(v == mCreateUserButton) {
             Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -102,6 +100,18 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                     }
                 });
     }
+
+//
+//    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener{ task ->
+//        if(task.isSuccessful){
+//            Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }else {
+//            Toast.makeText(this, "Registration Failed", Toast.LENGTH_LONG).show()
+//        }
+//    })
 
 
 
