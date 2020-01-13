@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.moringaschool.makeups.presentation.select_product.SelectProductActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +49,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         ButterKnife.bind(this);
 
+        mLoginTextView.setOnClickListener(this);
         mCreateUserButton.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
@@ -55,20 +57,20 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
 //        createNewUser();
 
-        TextView signIn_text = findViewById(R.id.signIn_text);
-        signIn_text.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignupActivity.this, LoginActivity.class));
-                finish();
-            }
-        });
+//        TextView signIn_text = findViewById(R.id.signIn_text);
+//        signIn_text.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+//                finish();
+//            }
+//        });
     }
 
 
     @Override
     public void onClick(View v) {
-        if(v == mCreateUserButton) {
+        if(v == mLoginTextView) {
             Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -93,6 +95,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Authentication successful");
+
                         } else {
                             Toast.makeText(SignupActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -124,7 +127,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SignupActivity.this, SelectProductActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
