@@ -10,6 +10,7 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_makeup"
         android:layout_width="0dp"
@@ -24,6 +25,7 @@
         tools:layout_constraintTop_creator="1"
         tools:listitem="@layout/list_item_make_up">
     </androidx.recyclerview.widget.RecyclerView>
+
 
     <TextView
         android:id="@+id/text_view_error_msg"
