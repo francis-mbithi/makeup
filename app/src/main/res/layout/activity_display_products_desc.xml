@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@drawable/colors"
     tools:context="com.moringaschool.makeups.presentation.display_product_desc.DisplayProductsDescActivity">
 
     <com.google.android.material.appbar.AppBarLayout

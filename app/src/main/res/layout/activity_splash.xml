@@ -19,6 +19,7 @@
         android:layout_below="@+id/logo_id"
         android:layout_centerHorizontal="true"
         android:text="MakeUP"
+        android:textColor="#600473"
         android:textSize="30dp"/>
 
 </RelativeLayout>

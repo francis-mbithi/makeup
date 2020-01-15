@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Log in"
-            android:background="@color/colorAccent"
+            android:background="#600473"
             android:layout_marginTop="15dp"
             android:textColor="@color/colorTextIcons" />
 
@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:textColor="@color/colorPrimaryLight"
+        android:textColor="#600473"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"

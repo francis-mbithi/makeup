@@ -2,17 +2,17 @@
     <gradient
         android:type="linear"
         android:centerX="69%"
-        android:startColor="#FFFF26A8"
-        android:centerColor="#FF66A7DB"
-        android:endColor="#FF00ffff"
+        android:startColor="#d4d4dc"
+        android:centerColor="#393f4d"
+        android:endColor="#393f4d"
         android:angle="45"/>
 
     android:type="radial"
     android:centerX="50%"
     android:centerY="50%"
-    android:startColor="#FFFF26A8"
-    android:centerColor="#FF66A7DB"
-    android:endColor="#FF00ffff"
+    android:startColor="#F51d0de"
+    android:centerColor="#bf4aa8"
+    android:endColor="#d9d9d9"
     android:gradientRadius="69"/>
 
 
