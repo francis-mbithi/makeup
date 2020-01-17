@@ -106,4 +106,6 @@ public class MakeUpSearchActivity extends AppCompatActivity implements MakeUpSea
         recyclerViewMakeUp.setVisibility(View.VISIBLE);
         textViewErrorMessage.setVisibility(View.GONE);
     }
+
+
 }

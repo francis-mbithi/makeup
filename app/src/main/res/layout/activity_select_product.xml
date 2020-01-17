@@ -9,6 +9,15 @@
     android:orientation="vertical"
     tools:context="com.moringaschool.makeups.presentation.select_product.SelectProductActivity">
 
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/log"
+        android:fitsSystemWindows="true"
+        android:indeterminate="true" />
     <TextView
         android:id="@+id/textView_search_intro"
         android:layout_width="wrap_content"

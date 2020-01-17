@@ -1,12 +1,18 @@
 package com.moringaschool.makeups.presentation.select_product;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.transition.Fade;
 import android.transition.Slide;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,7 +36,19 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SelectProductActivity extends AppCompatActivity implements SelectProductContract
-        .View, ProductsAdapter.ProductsAdapterCallback, BrandsAdapter.BrandsAdapterCallback {
+        .View, ProductsAdapter.ProductsAdapterCallback, BrandsAdapter.BrandsAdapterCallback, SensorEventListener {
+
+
+    private SensorManager mSensorManager;
+    private Sensor mSensor;
+    private long lastUpdate = 0;
+    private float last_x, last_y, last_z;
+    private static final int SHAKE_THRESHOLD = 500;
+
+    private int mOrientation;
+
+
+
 
 
 
@@ -75,6 +93,12 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
 
         selectProductPresenter = new SelectProductPresenter(selectProductContainer, productName);
         selectProductPresenter.attachView(this);
+
+
+
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mSensorManager.registerListener((SensorEventListener) this, mSensor, mSensorManager.SENSOR_DELAY_NORMAL);
 
 
 
@@ -151,4 +175,44 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        Sensor sensor = event.sensor;
+
+        if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            float x = event.values[0];
+            float y = event.values[1];
+            float z = event.values[2];
+
+            long curTime = System.currentTimeMillis();
+
+            if ((curTime - lastUpdate) > 100 ) {
+                long diffTime = (curTime - lastUpdate);
+                lastUpdate = curTime;
+
+                float speed = Math.abs(x + y + z - last_x - last_y - last_z)/diffTime * 10000;
+
+                if(speed > SHAKE_THRESHOLD) {
+                    Log.d("SensorEventListener", "shaking");
+
+                    last_x = x;
+                    last_y = y;
+                    last_z = z;
+
+                }
+            }
+        }
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+
+
+
 }
