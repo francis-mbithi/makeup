@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -72,6 +73,16 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_product);
 
+        if(getResources().getDisplayMetrics().widthPixels>getResources().getDisplayMetrics().
+                heightPixels)
+        {
+            Toast.makeText(this,"Screen switched to Landscape mode",Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(this,"Screen switched to Portrait mode",Toast.LENGTH_SHORT).show();
+        }
+
         textViewSearchIntro = (TextView) findViewById(R.id.textView_search_intro);
         recyclerViewProducts = (RecyclerView) findViewById(R.id.product_recycler_view);
         selectProductContainer = (LinearLayout) findViewById(R.id.activity_select_product);
@@ -103,6 +114,8 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
 
 
     }
+
+
 
 
     @Override
