@@ -1,13 +1,25 @@
 package com.moringaschool.makeups.presentation.search;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -16,6 +28,10 @@ import com.moringaschool.makeups.R;
 import com.moringaschool.makeups.data.remote.model.MakeUp;
 import com.moringaschool.makeups.injection.Injection;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import rx.android.schedulers.AndroidSchedulers;
@@ -33,11 +49,25 @@ public class MakeUpSearchActivity extends AppCompatActivity implements MakeUpSea
     private MakeUpSearchAdapter makeUpSearchAdapter;
 
     private MakeUpSearchContract.Presenter makeupSearchPresenter;
+    private static final int CAMERA_REQUEST=1888;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_up_search);
+        imageView=(ImageView) this.findViewById(R.id.imageView1);
+        Button photoButton=(Button) this.findViewById(R.id.button1);
+        photoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraIntent=new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+            }
+        });
+
+
+
 
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         textViewErrorMessage = (TextView) findViewById(R.id.text_view_error_msg);
@@ -63,6 +93,22 @@ public class MakeUpSearchActivity extends AppCompatActivity implements MakeUpSea
 
         makeupSearchPresenter.search(brand, product);
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAMERA_REQUEST) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            imageView.setImageBitmap(photo);
+        }
+    }
+
+
+
+
+
+
+
+
 
     @Override
     protected void onDestroy() {

@@ -5,7 +5,8 @@
 
 
     android:background="#600473">
-
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-feature android:name="android.hardware.camera" android:required="false" />
 
@@ -27,10 +28,11 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".presentation.search.MakeUpSearchActivity"></activity>
         <activity android:name=".presentation.select_product.SelectProductActivity"/>
-        android:configChanges="orientation|screenSize|keyboardHidden" />
 
         <activity
-            android:name=".presentation.display_product_desc.DisplayProductsDescActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+
+        android:name=".presentation.display_product_desc.DisplayProductsDescActivity"
 
             android:parentActivityName=".presentation.search.MakeUpSearchActivity"
             android:theme="@style/AppTheme.NoActionBar">

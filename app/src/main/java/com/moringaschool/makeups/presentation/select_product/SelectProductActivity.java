@@ -13,16 +13,19 @@ import android.transition.Slide;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.flexbox.AlignItems;
@@ -37,9 +40,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SelectProductActivity extends AppCompatActivity implements SelectProductContract
-        .View, ProductsAdapter.ProductsAdapterCallback, BrandsAdapter.BrandsAdapterCallback, SensorEventListener {
+        .View, ProductsAdapter.ProductsAdapterCallback, BrandsAdapter.BrandsAdapterCallback, GestureDetector.OnGestureListener {
 
 
+    GestureDetector gestureDetector;
     private SensorManager mSensorManager;
     private Sensor mSensor;
     private long lastUpdate = 0;
@@ -47,6 +51,12 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
     private static final int SHAKE_THRESHOLD = 500;
 
     private int mOrientation;
+
+    private static final String DEBUG_TAG = "Gestures";
+    private GestureDetectorCompat mDetector;
+
+
+
 
 
 
@@ -72,6 +82,9 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_product);
+
+        gestureDetector = new GestureDetector(SelectProductActivity.this, (GestureDetector.OnGestureListener) SelectProductActivity.this);
+
 
         if(getResources().getDisplayMetrics().widthPixels>getResources().getDisplayMetrics().
                 heightPixels)
@@ -106,13 +119,93 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
         selectProductPresenter.attachView(this);
 
 
+//
+//        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+//        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+//        mSensorManager.registerListener((SensorEventListener) this, mSensor, mSensorManager.SENSOR_DELAY_NORMAL);
 
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mSensorManager.registerListener((SensorEventListener) this, mSensor, mSensorManager.SENSOR_DELAY_NORMAL);
+    }
 
+    @Override
+    public boolean onFling(MotionEvent motionEvent1, MotionEvent motionEvent2, float X, float Y) {
 
+        if(motionEvent1.getY() - motionEvent2.getY() > 50){
 
+            Toast.makeText(SelectProductActivity.this , " Swipe Up " , Toast.LENGTH_LONG).show();
+
+            return true;
+        }
+
+        if(motionEvent2.getY() - motionEvent1.getY() > 50){
+
+            Toast.makeText(SelectProductActivity.this , " Swipe Down " , Toast.LENGTH_LONG).show();
+
+            return true;
+        }
+
+        if(motionEvent1.getX() - motionEvent2.getX() > 50){
+
+            Toast.makeText(SelectProductActivity.this , " Swipe Left " , Toast.LENGTH_LONG).show();
+
+            return true;
+        }
+
+        if(motionEvent2.getX() - motionEvent1.getX() > 50) {
+
+            Toast.makeText(SelectProductActivity.this, " Swipe Right ", Toast.LENGTH_LONG).show();
+
+            return true;
+        }
+        else {
+
+            return true ;
+        }
+    }
+
+    @Override
+    public void onLongPress(MotionEvent arg0) {
+
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent arg0, MotionEvent arg1, float arg2, float arg3) {
+
+        // TODO Auto-generated method stub
+
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent arg0) {
+
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent arg0) {
+
+        // TODO Auto-generated method stub
+
+        return false;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+
+        // TODO Auto-generated method stub
+
+        return gestureDetector.onTouchEvent(motionEvent);
+    }
+
+    @Override
+    public boolean onDown(MotionEvent arg0) {
+
+        // TODO Auto-generated method stub
+
+        return false;
     }
 
 
@@ -188,43 +281,6 @@ public class SelectProductActivity extends AppCompatActivity implements SelectPr
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        Sensor sensor = event.sensor;
-
-        if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            float x = event.values[0];
-            float y = event.values[1];
-            float z = event.values[2];
-
-            long curTime = System.currentTimeMillis();
-
-            if ((curTime - lastUpdate) > 100 ) {
-                long diffTime = (curTime - lastUpdate);
-                lastUpdate = curTime;
-
-                float speed = Math.abs(x + y + z - last_x - last_y - last_z)/diffTime * 10000;
-
-                if(speed > SHAKE_THRESHOLD) {
-                    Log.d("SensorEventListener", "shaking");
-
-                    last_x = x;
-                    last_y = y;
-                    last_z = z;
-
-                }
-            }
-        }
-
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
-
 
 
 
